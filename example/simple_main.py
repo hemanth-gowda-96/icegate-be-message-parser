@@ -2,7 +2,7 @@
 """Simple JSON to BE format converter example."""
 
 import json
-from exchange_parser import ExchangeRecord, parse_be_file, to_be_file
+from exchange_parser.CACH101 import ExchangeRecord, parse_be_file, to_be_file
 
 
 def json_to_be_string():
@@ -36,8 +36,13 @@ def json_to_be_string():
     record = ExchangeRecord(**json_data)
 
     # Convert to BE string
-    be_string = to_be_file([record])
+    be_result = to_be_file([record])
 
+    if be_result["err"] is not None:
+        print(f"\n❌ Serialization Error: {be_result['err']}")
+        return None
+
+    be_string = be_result["data"]
     print("\nBE String Output:")
     print(f"'{be_string}'")
 
