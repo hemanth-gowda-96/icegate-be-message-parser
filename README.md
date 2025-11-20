@@ -12,6 +12,8 @@ A Python package for parsing and serializing Indian Customs EXCHANGE (.be) forma
 
 ## Installation
 
+> **Note**: This project will be converted to use [uv](https://docs.astral.sh/uv/) for faster and more reliable Python package management in the near future.
+
 ### From Source (Development)
 
 ```bash
