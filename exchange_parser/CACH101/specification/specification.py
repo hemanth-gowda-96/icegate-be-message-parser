@@ -7,7 +7,7 @@ Contains field definitions, validation rules, and type specifications.
 # ------------------------------
 # Field Specification Table (CACH101)
 # ------------------------------
-FIELD_SPECS = [
+EXCHANGE_FIELD_SPECS = [
     ("message_type",             "C",     1,     {"FINAL": "F", "SEZ": "F"}),
     ("custom_house_code",        "C",     6,     {"FINAL": "K", "SEZ": "K"}),
     ("user_job_no",              "N",     7,     {"FINAL": "K", "SEZ": "K"}),
