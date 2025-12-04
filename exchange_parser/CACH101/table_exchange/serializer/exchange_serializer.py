@@ -4,8 +4,9 @@ with validation rules, FINAL/SEZ mode support,
 field type checking, and strict ICEGATE compliance.
 """
 
-from exchange_parser.CACH101.Specification.specification import FIELD_SPECS
-from exchange_parser.CACH101.models.exchange_model import ExchangeRecord
+
+from exchange_parser.CACH101.specification.specification import EXCHANGE_FIELD_SPECS
+from exchange_parser.CACH101.table_exchange.models.exchange_model import ExchangeRecord
 from exchange_parser.helpers.validation import _normalize, _validate_date, _validate_numeric, _validate_decimal
 
 DELIM = "\x1d"  # ASCII 29 GS
@@ -66,7 +67,7 @@ def validate_field(name, value, field_type, length, rule):
 # ------------------------------
 # Serializers
 # ------------------------------
-def to_be_line(record: ExchangeRecord, mode: str = "FINAL") -> dict:
+def exchange_to_be_line(record: ExchangeRecord, mode: str = "FINAL") -> dict:
     """Serialize a validated ExchangeRecord into a .be line."""
 
     try:
@@ -76,7 +77,7 @@ def to_be_line(record: ExchangeRecord, mode: str = "FINAL") -> dict:
 
         fields_out = []
 
-        for (name, ftype, length, rules) in FIELD_SPECS:
+        for (name, ftype, length, rules) in EXCHANGE_FIELD_SPECS:
             value = getattr(record, name, "")
 
             # Apply validation rules
@@ -99,14 +100,14 @@ def to_be_line(record: ExchangeRecord, mode: str = "FINAL") -> dict:
         return {"err": str(e), "data": None}
 
 
-def to_be_file(records: list[ExchangeRecord], mode="FINAL") -> dict:
+def exchange_to_be_file(records: list[ExchangeRecord], mode="FINAL") -> dict:
     """Serialize multiple records into BE file format."""
     if not records:
         return {"err": "No records provided", "data": None}
 
     lines = []
     for i, record in enumerate(records):
-        result = to_be_line(record, mode=mode)
+        result = exchange_to_be_line(record, mode=mode)
         if result["err"]:
             return {"err": f"Record {i+1}: {result['err']}", "data": None}
 
