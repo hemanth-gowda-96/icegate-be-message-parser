@@ -5,9 +5,9 @@ field type checking, and strict ICEGATE compliance.
 """
 
 
-from exchange_parser.CACH101.specification.specification import EXCHANGE_FIELD_SPECS
-from exchange_parser.CACH101.table_exchange.models.exchange_model import ExchangeRecord
-from exchange_parser.helpers.validation import _normalize, _validate_date, _validate_numeric, _validate_decimal
+from CACH101.specification.specification import EXCHANGE_FIELD_SPECS
+from CACH101.table_exchange.models.exchange_model import ExchangeRecord
+from helpers.validation import _normalize, _validate_date, _validate_numeric, _validate_decimal
 
 DELIM = "\x1d"  # ASCII 29 GS
 

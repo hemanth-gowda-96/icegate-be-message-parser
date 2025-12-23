@@ -3,8 +3,8 @@
 
 import json
 
-from exchange_parser.CACH101.table_exchange.models.exchange_model import ExchangeRecord
-from exchange_parser.CACH101.table_exchange.serializer.exchange_serializer import exchange_to_be_file
+from CACH101.table_exchange.models.exchange_model import ExchangeRecord
+from CACH101.table_exchange.serializer.exchange_serializer import exchange_to_be_file
 
 
 def json_to_be_string():
