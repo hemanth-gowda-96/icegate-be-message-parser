@@ -30,6 +30,20 @@ EXCHANGE_FIELD_SPECS = [
 ]
 
 
+PERMISSION_FIELD_SPECS = [
+    ("message_type",             "C",     1,     {"FINAL": "F", "SEZ": "F"}),
+    ("custom_house_code",        "C",     6,     {"FINAL": "K", "SEZ": "K"}),
+    ("user_job_no",              "N",     7,     {"FINAL": "K", "SEZ": "K"}),
+    ("user_job_date",            "DATE",  8,     {"FINAL": "K", "SEZ": "K"}),
+
+    ("be_number",                "N",     7,     {"FINAL": "X", "SEZ": "X"}),
+    ("be_date",                  "DATE",  8,     {"FINAL": "X", "SEZ": "X"}),
+
+    ("permission_code",          "C",     3,     {"FINAL": "M", "SEZ": "M"}),
+    ("reasons_for_request",      "C",     2000,  {"FINAL": "M", "SEZ": "M"}),
+]
+
+
 TABLE_BE_FIELDS_SPECS = [
     # Fields 1-6
     ("message_type",             "C",     1,     {"FINAL": "F", "SEZ": "F"}),
@@ -63,7 +77,7 @@ TABLE_BE_FIELDS_SPECS = [
     ("authorized_dealer_code",   "C",     10,    {"FINAL": "M", "SEZ": "M"}),
     ("first_check_requested",    "C",     1,     {"FINAL": "M", "SEZ": "M"}),
     ("warehouse_code",           "C",     8,     {"FINAL": "O", "SEZ": "M"}),
-    ("warehouse_customs_site_id","N",     6,     {"FINAL": "O", "SEZ": "M"}),
+    ("warehouse_customs_site_id", "N",     6,     {"FINAL": "O", "SEZ": "M"}),
     ("warehouse_be_no",          "C",     7,     {"FINAL": "O", "SEZ": "M"}),
     ("warehouse_be_date",        "DATE",  8,     {"FINAL": "O", "SEZ": "M"}),
     ("no_of_packages_released",  "N",     8,     {"FINAL": "O", "SEZ": "M"}),
